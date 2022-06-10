@@ -22,6 +22,7 @@ new Phaser.Game(config);
 function preload () {
   // This is the scene - and contains the properties whens starting.
   this.load.image('sky', 'assets/sky.png');
+  this.load.image('bird', 'assets/bird.png');
 
 
 
