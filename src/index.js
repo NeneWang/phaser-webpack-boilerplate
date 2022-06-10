@@ -20,9 +20,21 @@ const config = {
 new Phaser.Game(config);
 
 function preload () {
+  // This is the scene - and contains the properties whens starting.
   this.load.image('sky', 'assets/sky.png');
+
+
+
+
+
 }
 
 function create () {
-  this.add.image(400, 300, 'sky');
+
+  // x
+  // y
+  // Key of the image
+
+
+  this.add.image(config.width/2, config.height/2, 'sky');
 }
