@@ -39,7 +39,7 @@ function create () {
 
   this.add.image(config.width/2, config.height/2, 'sky');
 
-  this.add.sprite(config.width / 2, config.height / 2, 'bird').setOrigin(0)
-
+  bird = this.add.sprite(config.width / 2, config.height / 2, 'bird').setOrigin(0)
+  bird.body.gravity.y = 200;
 
 }
