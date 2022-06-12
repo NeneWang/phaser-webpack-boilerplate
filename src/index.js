@@ -45,7 +45,9 @@ this.add.image(0, 0, 'sky').setOrigin(0);
 }
 // Updated 60 times a second (60fps)
 function update(time, delta){
-  console.log(bird.body.velocity.y)
+  
+
+
 }
 
 new Phaser.Game(config);
