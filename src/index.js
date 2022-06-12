@@ -40,13 +40,20 @@ this.add.image(0, 0, 'sky').setOrigin(0);
   bird.body.gravity.y = 200;
   
   console.log(bird.body)
-  debugger
 
 }
 // Updated 60 times a second (60fps)
+
+let totalDelta = 0
+
 function update(time, delta){
   
+  if(totalDelta >= 1000){
+    console.log(bird.body.velocity.y);
+    totalDelta=0
+  }
 
+  totalDelta += delta;
 
 }
 
