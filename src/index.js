@@ -31,13 +31,14 @@ function preload () {
 
 const VELOCITY = 200;
 const FLAP_VELOCITY = 300;
-let bird = null;
+const initalBirdPosition = {x: config.width * 0.1, y: config.height / 2}
 
+let bird = null;
 
 function create () {
   this.add.image(0, 0, 'sky').setOrigin(0);
 
-  bird = this.physics.add.sprite(config.width * 0.1, config.height / 2, 'bird').setOrigin(0)
+  bird = this.physics.add.sprite(initalBirdPosition.x, initalBirdPosition.y, 'bird').setOrigin(0)
   // bird.body.velocity.x = VELOCITY;
   
   this.input.on("pointerdown", flap)
@@ -62,7 +63,7 @@ function update(time, delta){
 }
 
 function restartPlayerPosition(){
-  
+
 }
 
 
