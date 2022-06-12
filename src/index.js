@@ -8,7 +8,7 @@ const config = {
   physics: {
     default: 'arcade',
     arcade: {
-      gravity: { y: 200 }
+      // gravity: { y: 200 }
     }
   },
   scene: {
@@ -27,17 +27,15 @@ function preload () {
 
 }
 
+
+const VELOCITY = 600;
+
 let bird = null;
 function create () {
-
-  // x
-  // y
-  // Key of the image
-console.log("somasda")
-this.add.image(0, 0, 'sky').setOrigin(0);
+  this.add.image(0, 0, 'sky').setOrigin(0);
 
   bird = this.physics.add.sprite(config.width * 0.1, config.height / 2, 'bird').setOrigin(0)
-  bird.body.gravity.y = 200;
+  bird.body.velocity.x = VELOCITY;
   
   console.log(bird.body)
 
@@ -48,12 +46,11 @@ let totalDelta = 0
 
 function update(time, delta){
   
-  if(totalDelta >= 1000){
-    console.log(bird.body.velocity.y);
-    totalDelta=0
+  if(bird.x >= config.width){
+    bird.body.velocity.x = -VELOCITY;
+  }else if (bird.x <= 0){
+    bird.body.velocity.x = VELOCITY;
   }
-
-  totalDelta += delta;
 
 }
 
