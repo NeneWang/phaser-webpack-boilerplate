@@ -8,6 +8,7 @@ const config = {
   physics: {
     default: 'arcade',
     arcade: {
+      debug: true,
       // gravity: { y: 200 }
     }
   },
@@ -46,7 +47,7 @@ let totalDelta = 0
 
 function update(time, delta){
   
-  if(bird.x >= config.width){
+  if(bird.x >= config.width-30){
     bird.body.velocity.x = -VELOCITY;
   }else if (bird.x <= 0){
     bird.body.velocity.x = VELOCITY;
