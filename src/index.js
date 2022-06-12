@@ -48,16 +48,6 @@ function create () {
 
 }
 
-function restartBirdPosition(){
-  bird.x = initalBirdPosition.x;
-  bird.y = initalBirdPosition.y;
-
-
-}
-
-
-
-
 function flap(){
   // debugger
   bird.body.velocity.y = -FLAP_VELOCITY;
@@ -68,12 +58,14 @@ function update(time, delta){
   // If the bird y position is small than 0 or greater than height oof the cnavas then alert they have lost.
 
   if(bird.y > config.height || bird.y < - bird.height){
-    alert("You have lost")
+    restartPlayerPosition();
   }
 }
 
 function restartPlayerPosition(){
-
+  bird.x = initalBirdPosition.x;
+  bird.y = initalBirdPosition.y;
+  bird.body.velocity.y = 0;
 }
 
 
