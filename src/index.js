@@ -12,34 +12,41 @@ const config = {
     }
   },
   scene: {
-    preload: preload,
-    create: create
+    preload,
+    create,
+    update: update
+
   }
 };
 
-new Phaser.Game(config);
 
 function preload () {
   // This is the scene - and contains the properties whens starting.
   this.load.image('sky', 'assets/sky.png');
   this.load.image('bird', 'assets/bird.png');
 
-
-
-
-
 }
 
+let bird = null;
 function create () {
 
   // x
   // y
   // Key of the image
+console.log("somasda")
+this.add.image(0, 0, 'sky').setOrigin(0);
 
-
-  this.add.image(config.width/2, config.height/2, 'sky');
-
-  bird = this.add.sprite(config.width / 2, config.height / 2, 'bird').setOrigin(0)
+  bird = this.physics.add.sprite(config.width * 0.1, config.height / 2, 'bird').setOrigin(0)
   bird.body.gravity.y = 200;
+  
+  console.log(bird.body)
+  
 
 }
+// Updated 60 times a second (60fps)
+function update(){
+  console.log("Hello")
+
+}
+
+new Phaser.Game(config);
