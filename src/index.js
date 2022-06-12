@@ -48,6 +48,16 @@ function create () {
 
 }
 
+function restartBirdPosition(){
+  bird.x = initalBirdPosition.x;
+  bird.y = initalBirdPosition.y;
+
+
+}
+
+
+
+
 function flap(){
   // debugger
   bird.body.velocity.y = -FLAP_VELOCITY;
