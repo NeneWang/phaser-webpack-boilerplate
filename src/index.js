@@ -54,8 +54,16 @@ function flap(){
 
 
 function update(time, delta){
-  
+  // If the bird y position is small than 0 or greater than height oof the cnavas then alert they have lost.
 
+  if(bird.y > config.height || bird.y < - bird.height){
+    alert("You have lost")
+  }
 }
+
+function restartPlayerPosition(){
+  
+}
+
 
 new Phaser.Game(config);
