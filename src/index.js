@@ -32,26 +32,28 @@ function preload () {
 const VELOCITY = 600;
 
 let bird = null;
+
+
 function create () {
   this.add.image(0, 0, 'sky').setOrigin(0);
 
   bird = this.physics.add.sprite(config.width * 0.1, config.height / 2, 'bird').setOrigin(0)
   bird.body.velocity.x = VELOCITY;
   
-  console.log(bird.body)
+  this.input.on("pointerdown", flap)
+
+  this.input.keyboard.on("keydown_SPACE", flap)
+
 
 }
-// Updated 60 times a second (60fps)
 
-let totalDelta = 0
+function flap(){
+
+}
+
 
 function update(time, delta){
   
-  if(bird.x >= config.width-30){
-    bird.body.velocity.x = -VELOCITY;
-  }else if (bird.x <= 0){
-    bird.body.velocity.x = VELOCITY;
-  }
 
 }
 
