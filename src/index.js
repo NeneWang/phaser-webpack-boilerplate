@@ -82,17 +82,23 @@ function update(time, delta) {
   }
 }
 
-function placePipe(uPipem, lPipe){
+function placePipe(uPipe, lPipe){
   pipeHorizontalDistance += 400;
   let pipeVerticalDistance = Phaser.Math.Between(...pipeVerticalDistanceRange)
   let pipeVerticalPosition = Phaser.Math.Between(0 + 20, config.height - 20 - pipeVerticalDistance)
 
 
-  const upperPipe = this.physics.add.sprite(pipeHorizontalDistance, pipeVerticalPosition, 'pipe').setOrigin(0, 1);
-  const lowerPipe = this.physics.add.sprite(pipeHorizontalDistance, upperPipe.y + pipeVerticalDistance, 'pipe').setOrigin(0, 0);
+  // const upperPipe = this.physics.add.sprite(pipeHorizontalDistance, pipeVerticalPosition, 'pipe').setOrigin(0, 1);
+  // const lowerPipe = this.physics.add.sprite(pipeHorizontalDistance, upperPipe.y + pipeVerticalDistance, 'pipe').setOrigin(0, 0);
 
-  upperPipe.body.velocity.x = -200
-  lowerPipe.body.velocity.x = -200
+  uPipe.x = pipeHorizontalDistance;
+  uPipe.y = pipeVerticalPosition;
+
+  lPipe.x = uPipe.x
+  lPipe.y = uPipe.y + pipeVerticalDistance
+
+  uPipe.body.velocity.x = -200
+  lPipe.body.velocity.x = -200
 }
 
 function restartPlayerPosition() {
