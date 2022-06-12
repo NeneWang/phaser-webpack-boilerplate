@@ -25,37 +25,48 @@ function preload () {
   // This is the scene - and contains the properties whens starting.
   this.load.image('sky', 'assets/sky.png');
   this.load.image('bird', 'assets/bird.png');
+  this.load.image('pipe', 'assets/pipe.png');
 
 }
 
 
 const VELOCITY = 200;
+
+let bird = null;
+
+
+let upperPipe = null;
+let lowerPipe = null;
+
+
+
 const FLAP_VELOCITY = 300;
 const initalBirdPosition = {x: config.width * 0.1, y: config.height / 2}
 
-let bird = null;
+
 
 function create () {
   this.add.image(0, 0, 'sky').setOrigin(0);
 
-  bird = this.physics.add.sprite(initalBirdPosition.x, initalBirdPosition.y, 'bird').setOrigin(0)
+  bird = this.physics.add.sprite(initalBirdPosition.x, initalBirdPosition.y, 'bird').setOrigin(0);
+  bird.body.gravity.y = 400;
+  upperPipe = this.add.sprite(400, 100, 'pipe').setOrigin(0, 1);
+  lowerPipe = this.add.sprite(400, upperPipe.y + 100, 'pipe').setOrigin(0, 0);
+
   // bird.body.velocity.x = VELOCITY;
   
   this.input.on("pointerdown", flap)
 
   this.input.keyboard.on("keydown_SPACE", flap)
-
-
 }
 
 function flap(){
-  // debugger
+  
   bird.body.velocity.y = -FLAP_VELOCITY;
 }
 
 
 function update(time, delta){
-  // If the bird y position is small than 0 or greater than height oof the cnavas then alert they have lost.
 
   if(bird.y > config.height || bird.y < - bird.height){
     restartPlayerPosition();
@@ -63,6 +74,7 @@ function update(time, delta){
 }
 
 function restartPlayerPosition(){
+
   bird.x = initalBirdPosition.x;
   bird.y = initalBirdPosition.y;
   bird.body.velocity.y = 0;
