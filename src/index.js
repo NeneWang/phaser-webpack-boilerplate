@@ -9,7 +9,7 @@ const config = {
     default: 'arcade',
     arcade: {
       debug: true,
-      // gravity: { y: 200 }
+      gravity: { y: 200 }
     }
   },
   scene: {
@@ -29,7 +29,7 @@ function preload () {
 }
 
 
-const VELOCITY = 600;
+const VELOCITY = 200;
 
 let bird = null;
 
@@ -38,7 +38,7 @@ function create () {
   this.add.image(0, 0, 'sky').setOrigin(0);
 
   bird = this.physics.add.sprite(config.width * 0.1, config.height / 2, 'bird').setOrigin(0)
-  bird.body.velocity.x = VELOCITY;
+  // bird.body.velocity.x = VELOCITY;
   
   this.input.on("pointerdown", flap)
 
@@ -48,7 +48,8 @@ function create () {
 }
 
 function flap(){
-
+  // debugger
+  bird.body.velocity.y = -VELOCITY;
 }
 
 
