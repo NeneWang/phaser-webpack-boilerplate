@@ -30,7 +30,7 @@ function preload () {
 
 
 const VELOCITY = 200;
-
+const FLAP_VELOCITY = 300;
 let bird = null;
 
 
@@ -49,7 +49,7 @@ function create () {
 
 function flap(){
   // debugger
-  bird.body.velocity.y = -VELOCITY;
+  bird.body.velocity.y = -FLAP_VELOCITY;
 }
 
 
