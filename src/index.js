@@ -9,7 +9,6 @@ const config = {
     default: 'arcade',
     arcade: {
       debug: true,
-      gravity: { y: 200 }
     }
   },
   scene: {
@@ -59,8 +58,12 @@ function create() {
     let pipeVerticalPosition = Phaser.Math.Between(0 + 20, config.height - 20 - pipeVerticalDistance)
 
 
-    upperPipe = this.add.sprite(pipeHorizontalDistance, pipeVerticalPosition, 'pipe').setOrigin(0, 1);
-    lowerPipe = this.add.sprite(pipeHorizontalDistance, upperPipe.y + pipeVerticalDistance, 'pipe').setOrigin(0, 0);
+    upperPipe = this.physics.add.sprite(pipeHorizontalDistance, pipeVerticalPosition, 'pipe').setOrigin(0, 1);
+    lowerPipe = this.physics.add.sprite(pipeHorizontalDistance, upperPipe.y + pipeVerticalDistance, 'pipe').setOrigin(0, 0);
+
+    upperPipe.body.velocity.x = -200
+    lowerPipe.body.velocity.x = -200
+
   }
 
 
