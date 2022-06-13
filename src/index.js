@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import PlayScene from './scenes/PlayScene'
 
 const config = {
   // WebGL (Web graphics library) JS Api for rendering 2D and 3D graphics
