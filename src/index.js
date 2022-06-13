@@ -65,6 +65,7 @@ function update(time, delta) {
  if (bird.y > config.height || bird.y < -bird.height) {
   restartBirdPosition();
  }
+ recyclePipes()
 }
 
 function placePipe(uPipe, lPipe) {
@@ -83,9 +84,20 @@ function placePipe(uPipe, lPipe) {
 
 
 function recyclePipes(){
+
+  const tempPipes = []
+
   pipes.getChildren().forEach(pipe => {
-    if(pipe.getBound().right <= 0){
-      
+    if(pipe.getBounds().right <= 0){
+      // Recycle pipe
+      tempPipes.push(pipe)
+
+      if(tempPipes.length === 2){
+        placePipe(...tempPipes)
+      }
+      // get her upper and lower that are out of the bound
+
+
     }
   })
 }
