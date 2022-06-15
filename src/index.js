@@ -1,6 +1,16 @@
 import Phaser from 'phaser';
 import PlayScene from './scenes/PlayScene'
 
+
+const WIDTH = 800;
+const HEIGHT = 600;
+const BIRD_POSITION = { x: WIDTH / 2, y: HEIGHT / 2 }
+const SHARED_CONFIG = {
+  width: WIDTH,
+  height: HEIGHT,
+  startPosition: BIRD_POSITION
+}
+
 const config = {
   // WebGL (Web graphics library) JS Api for rendering 2D and 3D graphics
   type: Phaser.AUTO,
@@ -13,11 +23,7 @@ const config = {
       debug: true,
     }
   },
-  scene: {
-    preload,
-    create,
-    update
-  }
+  scene: [new PlayScene(SHARED_CONFIG)]
 }
 
 const VELOCITY = 200;
@@ -32,7 +38,7 @@ const pipeVerticalDistanceRange = [150, 250];
 const pipeHorizontalDistnaceRange = [450, 500]
 
 const flapVelocity = 250;
-const initalBirdPosition = {x: config.width * 0.1, y: config.height / 2}
+const initalBirdPosition = { x: config.width * 0.1, y: config.height / 2 }
 
 function preload() {
   this.load.image('sky', 'assets/sky.png');
@@ -63,10 +69,10 @@ function create() {
 // if bird y position is small than 0 or greater than height of the canvas
 // then alert "you have lost"
 function update(time, delta) {
- if (bird.y > config.height || bird.y < -bird.height) {
-  restartBirdPosition();
- }
- recyclePipes()
+  if (bird.y > config.height || bird.y < -bird.height) {
+    restartBirdPosition();
+  }
+  recyclePipes()
 }
 
 function placePipe(uPipe, lPipe) {
@@ -76,7 +82,7 @@ function placePipe(uPipe, lPipe) {
   let pipeVerticalPosition = Phaser.Math.Between(0 + 20, config.height - 20 - pipeVerticalDistance);
   let pipeHorizontalDistance = Phaser.Math.Between(...pipeHorizontalDistnaceRange)
 
-  uPipe.x =  rightMostX + pipeHorizontalDistance;
+  uPipe.x = rightMostX + pipeHorizontalDistance;
   uPipe.y = pipeVerticalPosition;
 
   lPipe.x = uPipe.x;
@@ -84,16 +90,16 @@ function placePipe(uPipe, lPipe) {
 }
 
 
-function recyclePipes(){
+function recyclePipes() {
 
   const tempPipes = []
 
   pipes.getChildren().forEach(pipe => {
-    if(pipe.getBounds().right <= 0){
+    if (pipe.getBounds().right <= 0) {
       // Recycle pipe
       tempPipes.push(pipe)
 
-      if(tempPipes.length === 2){
+      if (tempPipes.length === 2) {
         placePipe(...tempPipes)
       }
       // get her upper and lower that are out of the bound
