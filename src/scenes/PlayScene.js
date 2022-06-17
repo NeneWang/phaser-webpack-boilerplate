@@ -146,6 +146,8 @@ class PlayScene extends Phaser.Scene {
     this.physics.pause();
     this.bird.setTint(0xEE4824);
 
+    this.saveBestScore();
+
     this.time.addEvent({
         delay: 1000,
         callback: () => {
