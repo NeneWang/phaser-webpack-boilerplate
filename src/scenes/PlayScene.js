@@ -73,7 +73,7 @@ class PlayScene extends Phaser.Scene {
   }
 
   checkGameStatus() {
-    if (this.bird.getBounds().bottom > this.config.height || this.bird.y <= 0) {
+    if (this.bird.getBounds().bottom >= this.config.height || this.bird.y <= 0) {
       this.gameOver();
     }
   }
