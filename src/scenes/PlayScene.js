@@ -128,7 +128,14 @@ class PlayScene extends Phaser.Scene {
   }
 
   setBestScore(){
-    
+
+    const bestScoreText = localStorage.getItem('bestScore');
+    const bestScore = bestScoreText && parseInt(bestScoreText, 10);
+
+    if(!bestScore || this.score > bestScore){
+        localStorage.setItem('bestScore', this.score)
+    }
+
   }
 
   gameOver() {
@@ -137,13 +144,6 @@ class PlayScene extends Phaser.Scene {
     // this.bird.body.velocity.y = 0;
     this.physics.pause();
     this.bird.setTint(0xEE4824);
-
-    const bestScoreText = localStorage.getItem('bestScore');
-    const bestScore = bestScoreText && parseInt(bestScoreText, 10);
-
-    if(!bestScore || this.score > bestScore){
-        localStorage.setItem('bestScore', this.score)
-    }
 
     this.time.addEvent({
         delay: 1000,
