@@ -111,7 +111,8 @@ class PlayScene extends Phaser.Scene {
         tempPipes.push(pipe);
         if (tempPipes.length === 2) {
           this.placePipe(...tempPipes);
-          this.increaseScore()
+          this.increaseScore();
+          this.saveBestScore();
         }
       }
     })
@@ -127,7 +128,7 @@ class PlayScene extends Phaser.Scene {
     return rightMostX;
   }
 
-  setBestScore(){
+  saveBestScore(){
 
     const bestScoreText = localStorage.getItem('bestScore');
     const bestScore = bestScoreText && parseInt(bestScoreText, 10);
