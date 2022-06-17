@@ -77,7 +77,7 @@ class PlayScene extends Phaser.Scene {
     const bestScore = localStorage.getItem('bestScore')
 
     this.scoreText = this.add.text(16, 16, `Score: ${0}`, {fontSize: '32px', fill: '#000'});
-   this.add.text(16, 52, `Best Score ${bestScore}`, {fontSize: '18px', fill: '#000'})
+    this.add.text(16, 52, `Best Score ${bestScore}`, {fontSize: '18px', fill: '#000'})
   }
 
   handleInputs() {
@@ -125,6 +125,10 @@ class PlayScene extends Phaser.Scene {
     })
 
     return rightMostX;
+  }
+
+  setBestScore(){
+    
   }
 
   gameOver() {
