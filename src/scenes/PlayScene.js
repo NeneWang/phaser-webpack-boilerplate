@@ -1,4 +1,4 @@
-import Phaser from 'phaser';
+
 
 const PIPES_TO_RENDER = 4;
 
