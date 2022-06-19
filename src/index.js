@@ -13,6 +13,12 @@ const SHARED_CONFIG = {
   startPosition: BIRD_POSITION
 }
 
+const Scenes = [PreloadScene, MenuScene, PlayScene]
+
+const createScene = Scene => new Scene(SHARED_CONFIG)
+
+const initScenes = () => Scenes.map((Scene) => new Scene(SHARED_CONFIG))
+
 const config = {
   // WebGL (Web graphics library) JS Api for rendering 2D and 3D graphics
   type: Phaser.AUTO,
@@ -25,7 +31,7 @@ const config = {
       debug: true,
     }
   },
-  scene: [ new PreloadScene(SHARED_CONFIG), new MenuScene(SHARED_CONFIG), new PlayScene(SHARED_CONFIG)]
+  scene: initScenes()
 }
 
 new Phaser.Game(config)
