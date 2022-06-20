@@ -11,6 +11,11 @@ class BaseScene extends Phaser.Scene{
         this.add.image(0, 0, 'sky').setOrigin(0);
         
     }
+
+    
+    sayHello(){
+        alert('Hello Guys!')
+    }
 }
 
 export default BaseScene;
