@@ -30,6 +30,10 @@ class MenuScene extends BaseScene {
         textGO.on('pointerout', () => {
             textGO.setStyle({ fill: '#fff' })
         })
+
+        textGO.on('pointerup', () => {
+            alert('Option Clicked')
+        })
     }
 
 
