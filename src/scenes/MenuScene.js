@@ -16,7 +16,7 @@ class MenuScene extends BaseScene {
 
     create() {
         super.create()
-        this.createMenu(this.menu, () => this.setupMenuEvets() );
+        this.createMenu(this.menu, this.setupMenuEvets.bind(this));
     }
 
     setupMenuEvets(menuItem) {
