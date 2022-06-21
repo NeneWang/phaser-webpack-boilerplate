@@ -11,13 +11,14 @@ class MenuScene extends BaseScene {
             { scene: null, text: "Exit" }
         ]
 
-    }
 
+    }
 
     create() {
         super.create()
-
+        this.createMenu(this.menu);
     }
+
 }
 
 export default MenuScene;
