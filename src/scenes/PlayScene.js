@@ -88,6 +88,7 @@ class PlayScene extends BaseScene{
             console.log("Pausing the game!");
             this.physics.pause();
             this.scene.pause();
+            this.scene.start('MenuScene')
         })
         
 

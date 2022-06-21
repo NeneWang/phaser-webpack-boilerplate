@@ -1,19 +1,26 @@
 
 import Phaser from 'phaser';
 
-class BaseScene extends Phaser.Scene{
-    constructor(key, config){
+class BaseScene extends Phaser.Scene {
+    constructor(key, config) {
         super(key);
         this.config = config;
+        this.screenCenter = [config.width / 2, config.height / 2];
     }
 
-    create(){
+    create() {
         this.add.image(0, 0, 'sky').setOrigin(0);
-        
+
     }
 
-    
-    sayHello(){
+    createMenu(menu) {
+        menu.forEach(menu => {
+            const menuPosition = []
+        })
+    }
+
+
+    sayHello() {
         alert('Hello Guys!')
     }
 }
