@@ -16,8 +16,14 @@ class MenuScene extends BaseScene {
 
     create() {
         super.create()
-        this.createMenu(this.menu);
+        this.createMenu(this.menu, this.setupMenuEvets);
     }
+
+    setupMenuEvets(menuItem) {
+        const textGO = menuItem.textGO;
+        
+    }
+
 
 }
 
