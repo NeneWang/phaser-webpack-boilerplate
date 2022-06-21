@@ -32,7 +32,13 @@ class MenuScene extends BaseScene {
         })
 
         textGO.on('pointerup', () => {
-            alert('Option Clicked')
+            menuItem.scene && this.scene.start(menuItem.scene);
+
+            if (menuItem.text === 'Exit') {
+                this.game.destroy(true)
+            }
+
+
         })
     }
 
