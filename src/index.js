@@ -24,6 +24,7 @@ const config = {
   type: Phaser.AUTO,
   width: WIDTH,
   height: HEIGHT,
+  pixelArt: true,
   physics: {
     // Arcade physics plugin, manages physics simulation
     default: 'arcade',
