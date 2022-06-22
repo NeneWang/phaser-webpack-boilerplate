@@ -6,7 +6,7 @@ import ScoreScene from './scenes/ScoreScene';
 import PauseScene from './scenes/PauseScene';
 
 
-const WIDTH = 800;
+const WIDTH = 400;
 const HEIGHT = 600;
 const BIRD_POSITION = { x: WIDTH / 2, y: HEIGHT / 2 }
 const SHARED_CONFIG = {
@@ -17,15 +17,13 @@ const SHARED_CONFIG = {
 
 const Scenes = [PreloadScene, MenuScene, PlayScene, ScoreScene, PauseScene]
 
-const createScene = Scene => new Scene(SHARED_CONFIG)
-
 const initScenes = () => Scenes.map((Scene) => new Scene(SHARED_CONFIG))
 
 const config = {
   // WebGL (Web graphics library) JS Api for rendering 2D and 3D graphics
   type: Phaser.AUTO,
-  width: 800,
-  height: 600,
+  width: WIDTH,
+  height: HEIGHT,
   physics: {
     // Arcade physics plugin, manages physics simulation
     default: 'arcade',
