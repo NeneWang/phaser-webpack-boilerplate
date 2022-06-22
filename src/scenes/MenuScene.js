@@ -7,7 +7,7 @@ class MenuScene extends BaseScene {
 
         this.menu = [
             { scene: 'PlayScene', text: 'Play' },
-            { scene: 'Score', text: 'Score' },
+            { scene: 'ScoreScene', text: 'Score' },
             { scene: null, text: "Exit" }
         ]
 
