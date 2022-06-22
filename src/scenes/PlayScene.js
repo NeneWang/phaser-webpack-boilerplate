@@ -2,7 +2,7 @@ import BaseScene from "./BaseScene";
 
 const PIPES_TO_RENDER = 4;
 
-class PlayScene extends BaseScene{
+class PlayScene extends BaseScene {
 
     constructor(config) {
         super('PlayScene', config);
@@ -80,19 +80,15 @@ class PlayScene extends BaseScene{
 
     createPause() {
         const pauseButton = this.add.image(this.config.width - 10, this.config.height - 10, 'pause').setInteractive().setScale(3).setOrigin(1);
-        
+
 
         pauseButton.on('pointerdown', () => {
 
             console.log("Pausing the game!");
             this.physics.pause();
             this.scene.pause();
-            this.scene.start('PauseScene')
+            this.scene.launch('PauseScene')
         })
-        
-
-
-
     }
 
     handleInputs() {
