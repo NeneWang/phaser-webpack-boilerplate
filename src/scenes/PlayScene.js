@@ -9,6 +9,7 @@ class PlayScene extends BaseScene {
 
         this.bird = null;
         this.pipes = null;
+        this.isPaused = false;
 
         this.pipeHorizontalDistance = 0;
         this.pipeVerticalDistanceRange = [150, 250];
@@ -196,7 +197,12 @@ class PlayScene extends BaseScene {
     }
 
     flap() {
+        if (this.isPaused) {
+            return
+        }
+
         this.bird.body.velocity.y = -this.flapVelocity;
+
     }
 
     increaseScore() {
