@@ -22,16 +22,16 @@ class PlayScene extends BaseScene {
         this.currentDifficulty = 'easy';
         this.difficulties = {
             'easy': {
-                pipeHorizontalDistanceRange: [300, 350],
-                pipeHorizontalDistanceRange: [150, 200]
+                pipeHorizontalDistanceRange: [500, 550],
+                pipeVerticalDistanceRange: [300, 400]
             },
             'normal': {
                 pipeHorizontalDistanceRange: [280, 330],
-                pipeHorizontalDistanceRange: [140, 190]
+                pipeVerticalDistanceRange: [140, 190]
             },
             'hard': {
                 pipeHorizontalDistanceRange: [250, 310],
-                pipeHorizontalDistanceRange: [120, 170]
+                pipeVerticalDistanceRange: [120, 170]
             },
         }
     }
@@ -149,9 +149,9 @@ class PlayScene extends BaseScene {
     placePipe(uPipe, lPipe) {
         const difficulty = this.difficulties[this.currentDifficulty];
         const rightMostX = this.getRightMostPipe();
-        const pipeVerticalDistance = Phaser.Math.Between(...this.pipeVerticalDistanceRange);
+        const pipeVerticalDistance = Phaser.Math.Between(...difficulty.pipeVerticalDistanceRange);
         const pipeVerticalPosition = Phaser.Math.Between(0 + 20, this.config.height - 20 - pipeVerticalDistance);
-        const pipeHorizontalDistance = Phaser.Math.Between(...this.pipeHorizontalDistanceRange);
+        const pipeHorizontalDistance = Phaser.Math.Between(...difficulty.pipeHorizontalDistanceRange);
 
         uPipe.x = rightMostX + pipeHorizontalDistance;
         uPipe.y = pipeVerticalPosition;
@@ -169,9 +169,22 @@ class PlayScene extends BaseScene {
                     this.placePipe(...tempPipes);
                     this.increaseScore();
                     this.saveBestScore();
+                    this.increaseDifficulty();
                 }
             }
         })
+    }
+
+    increaseDifficulty() {
+        if (this.score === 1) {
+            this.currentDifficulty = "normal";
+        }
+
+        if (this.score >= 3) {
+            this.currentDifficulty = "hard";
+            console.log("Difficulty changed to hard")
+        }
+
     }
 
     getRightMostPipe() {
