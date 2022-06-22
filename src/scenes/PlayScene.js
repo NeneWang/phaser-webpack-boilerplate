@@ -53,9 +53,7 @@ class PlayScene extends BaseScene {
         this.anims.create({
             key: 'fly',            
             frames: this.anims.generateFrameNumbers('bird', {start: 9, end: 16}),
-
             // 8 frames are runned on a second
-
             frameRate: 8,
             repeat: -1
         })
