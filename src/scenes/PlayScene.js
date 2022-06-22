@@ -50,6 +50,18 @@ class PlayScene extends BaseScene {
         this.createPause()
         this.listenToEvents();
 
+        this.anims.create({
+            key: 'fly',            
+            frames: this.anims.generateFrameNumbers('bird', {start: 9, end: 16}),
+
+            // 8 frames are runned on a second
+
+            frameRate: 8,
+            repeat: -1
+        })
+
+        this.bird.play('fly')
+
     }
 
     update() {
@@ -89,7 +101,7 @@ class PlayScene extends BaseScene {
     }
 
     createBird() {
-        this.bird = this.physics.add.sprite(this.config.startPosition.x, this.config.startPosition.y, 'bird').setOrigin(0);
+        this.bird = this.physics.add.sprite(this.config.startPosition.x, this.config.startPosition.y, 'bird').setScale(3).setOrigin(0).setFlipX(-1);
         this.bird.body.gravity.y = 400;
         this.bird.setCollideWorldBounds(true)
     }
