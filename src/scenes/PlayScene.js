@@ -57,7 +57,7 @@ class PlayScene extends BaseScene {
     countDown() {
         this.initialTime--;
         console.log(this.initialTime)
-        this.countDownText.setText('Fly in: ' + this.initialTime,  this.fontOptions)
+        this.countDownText.setText('Fly in: ' + this.initialTime, this.fontOptions)
 
         if (this.initialTime <= 0) {
             this.countDownText.setText('');
@@ -111,8 +111,7 @@ class PlayScene extends BaseScene {
 
 
         pauseButton.on('pointerdown', () => {
-
-            console.log("Pausing the game!");
+            this.isPaused = true;
             this.physics.pause();
             this.scene.pause();
             this.scene.launch('PauseScene')
