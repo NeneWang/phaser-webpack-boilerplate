@@ -64,6 +64,7 @@ class PlayScene extends BaseScene {
             this.countDownText.setText('');
             this.physics.resume();
             this.timedEvent.remove();
+            this.isPaused = false;
         }
 
     }
