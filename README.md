@@ -13,4 +13,5 @@ Features
 - Saving Highschores
 - Gravity and Collisions
 
-!()[https://scholar.wangnelson.xyz/assets/images/flappy-bird-end-47a62d3019ee8879de6e881dbd97bd5b.gif]
+
+![](https://scholar.wangnelson.xyz/assets/images/flappy-bird-end-47a62d3019ee8879de6e881dbd97bd5b.gif)
